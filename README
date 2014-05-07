@@ -1,0 +1,123 @@
+Simple writable database program runnning on Laravel php web framework
+
+Laravel was installed on this machine.  Laravel isn't really installed, but rather it is unzipped and started with the onboard php.  You'll need to download and unzip it yourself because the huge "vendor" folder is empty in this repository.  You can copy this code into your installation and start it with any luck.
+
+PHP was upgraded to php version 5.4.  Centos 6 maxes out at 5.3.3 as of 030714.  
+An entire web database application was created here and can be stored somewhere probably in /var/www/
+
+It does NOT use the onboard apache server.  
+
+It does NOT use the onboard mysql server.  
+
+Most proper Laravel production deployments probably do use onboard apache and mysql.  
+
+This one starts the web server in php.  Yes, PHP is the process running that is listening on port 8000.  The database is an sqlite3 database located in that same directory where the entire thing is.  Therefore, this application can instantly transport to a Mac OSX or Windows machine elsewhere that satisfies the two not typical requirements:
+
+php 5.4 
+sqlite3
+
+...there are actually other requirements, related to php module/plugins/?? like php-mcrypt and php_sqlite?? but probably others too.  PHP needs to be 5.4 and it needs to be able to find and use the sqlite somehow.  sqlite3 was already there and the xtra-large php setup seems to satisfy everything.
+
+The onboard application can be found by visiting with a web browser to this location:
+
+localhost:8000/carriers/
+
+If the application is NOT running, any non-root can start it (because the default is only port 8000), like this:
+
+$ cd /var/www/html/carriers
+
+$ php artisan serve --host="localhost"
+$ php artisan serve --host="hostname.com"
+
+[root@hostname.com carriers]# php artisan serve
+Laravel development server started on http://localhost:8000
+
+...that last option  --host="hostname.com"  is not required and can be omitted.  But without it, the server will only listen on localhost, and you will only be able to visit it from a web browser running on localhost.  You can also pass --port=80, but you'll have to be root to listen on port 80.  And apache might already be using port 80 on that machine (or want to later).  You can get the lowdown help on artisan like this:
+
+
+php artisan serve --help
+
+
+...feel free to delete/edit/create records of carriers, because the entire (already pre-seeded) application can be untarred from the tarfile.  
+
+...and from there you can see the existing records, add new carriers, delete them or edit existing carriers.  All of the data only changes in the sqlite3 database.  
+
+The application was written (by Tom) and the details of that are (hopefully (soon)) documented somewhere.  Books and websites on Laravel will get you moving quickly.  About ten files were edited and a dozen commands were run (to create the app, seed the database, other setup activity).  It is as easy as any comparably web database construction.
+
+==Starting the example program, carriers==
+
+As mentioned above, if the program is NOT running, then you will need to start it.  What was NOT mentioned is that you WILL NEED TO START IT.  The start command:
+
+$ php artisan serve --host="localhost"
+
+...for some reason that I don't understand, will not go properly into the background.  Normally, you could start it and let run forever, in the background like this:
+
+$ php artisan serve --host="localhost" &
+
+...but that ampersand & on the end will put it into the background but it also disables it, so that you cannot do something else while it still serves.  This is not a bug but is the way that the code works.  A "fix" will require them to fix the code so that the blocking goes away.  This is NOT a problem.  Just start it in the normal way:
+
+localhost$ php artisan serve --host="localhost"
+
+...and let your shell get stuck forever.  Use another shell, perhaps a browser, logging in with X-forwarding like this, in another shell, while php artisan serve, is running:
+
+
+ELSEWHERE$  ssh -X USER@hostname.com
+
+hostname.com$  firefox &
+
+
+...and then visit the carriers page in firefox, at this URL:
+
+
+localhost:8000/carriers/
+
+...and go ahead and hack on it.  
+
+Mentioned above is the boatload of PHP.  Without the boatload, you might see messages like these when you startup:
+
+php artisan serve
+Mcrypt PHP extension required.
+
+These ridiculous PHP modifying installations were run on CentOS 6.5 circa early 2014 and got the machine in a position to start properly:
+
+ wget http://rpms.famillecollet.com/enterprise/remi-release-6.rpm
+ rpm -ivh remi-release-6.rpm 
+ wget http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
+ rpm -ivh epel-release-6-8.noarch.rpm 
+ rpm -ivh remi-release-6.rpm 
+ cat /etc/yum.repos.d/remi.repo 
+ cat /etc/yum.repos.d/epel.repo 
+ cat /etc/yum.repos.d/epel.repo 
+ vim /etc/yum.repos.d/remi.repo 
+ yum install php-5.4.26-1.el6.remi
+ yum -y install php-pecl-memcache-3.0.8-2.el6.remi.5.4
+ yum -y install php-horde-imp-6.1.7-1.el6.remi
+ yum -y install php-horde-horde-5.1.6-1.el6.remi
+ yum -y install phpMyAdmin-4.1.9-1.el6.remi
+ yum -y install php-5.4.26-1.el6.remi
+ yum -y install php-bcmath-5.4.26-1.el6.remi
+ yum -y install php-cli-5.4.26-1.el6.remi
+ yum -y install php-common-5.4.26-1.el6.remi
+ yum -y install php-dba-5.4.26-1.el6.remi
+ yum -y install php-devel-5.4.26-1.el6.remi
+ yum -y install php-embedded-5.4.26-1.el6.remi
+ yum -y install php-enchant-5.4.26-1.el6.remi
+ yum -y install php-fpm-5.4.26-1.el6.remi
+ yum -y install php-gd-5.4.26-1.el6.remi
+ yum -y install php-imap-5.4.26-1.el6.remi
+ yum -y install php-interbase-5.4.26-1.el6.remi
+ yum -y install php-intl-5.4.26-1.el6.remi
+ yum -y install php-ldap-5.4.26-1.el6.remi
+ yum -y install php-mbstring-5.4.26-1.el6.remi
+ yum -y install php-mcrypt-5.4.26-1.el6.remi
+ yum -y install php-mssql-5.4.26-1.el6.remi
+ yum -y install php-mysql-5.4.26-1.el6.remi
+ yum -y install php-mysqlnd-5.4.26-1.el6.remi
+ yum -y install php-oci8-5.4.26-1.el6.remi
+ yum -y install php-odbc-5.4.26-1.el6.remi
+ yum -y install php-pdo-5.4.26-1.el6.remi
+ yum -y install php-pgsql-5.4.26-1.el6.remi
+ yum -y install php-process-5.4.26-1.el6.remi
+ yum -y install php-pspell-5.4.26-1.el6.remi
+ yum -y install php-recode-5.4.26-1.el6.remi
+
