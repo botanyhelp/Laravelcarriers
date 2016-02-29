@@ -1,0 +1,4 @@
+site_name: Laravelcarriers
+pages:
+- Home: index.md
+- PHP: php_requirements.md
