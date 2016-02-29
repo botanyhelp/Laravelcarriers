@@ -1,0 +1,149 @@
+{
+    "docs": [
+        {
+            "location": "/", 
+            "text": "Laravelcarriers project page\n\n\nThis project used laravel 4.\n\n\nThere are too many complaints about stability, do keep things in mind:\n\n\n\n\nUsually they are resolved by recreating everything\n\n\nLaravel is supported\n  \nlaravel.com\n  \nnewrelic.com/laravel\n\n\nRecreation does work and might be needed so keep notes. \n\n\nLots of PHP modules are involved and so a stable and unchanging linux is nice. \n\n\nwww.php.net\n\n\nphptherightway.com\n\n\nFilling a huge database will likely require several discrete filling events. \n\n\nLaravel has its own web server and its own mysql database server during development. \n\n\n\n\nWith its own web server and db server, no root access is needed.\n\n\nWithout root access, port \n 1024 is needed, and usually port 8000 is employed\n\n\nGoogle can help\n\n\nhttp://127.0.0.1:8000", 
+            "title": "Home"
+        }, 
+        {
+            "location": "/#laravelcarriers-project-page", 
+            "text": "", 
+            "title": "Laravelcarriers project page"
+        }, 
+        {
+            "location": "/#this-project-used-laravel-4", 
+            "text": "", 
+            "title": "This project used laravel 4."
+        }, 
+        {
+            "location": "/#there-are-too-many-complaints-about-stability-do-keep-things-in-mind", 
+            "text": "Usually they are resolved by recreating everything  Laravel is supported\n   laravel.com\n   newrelic.com/laravel  Recreation does work and might be needed so keep notes.   Lots of PHP modules are involved and so a stable and unchanging linux is nice.   www.php.net  phptherightway.com  Filling a huge database will likely require several discrete filling events.   Laravel has its own web server and its own mysql database server during development.", 
+            "title": "There are too many complaints about stability, do keep things in mind:"
+        }, 
+        {
+            "location": "/#with-its-own-web-server-and-db-server-no-root-access-is-needed", 
+            "text": "", 
+            "title": "With its own web server and db server, no root access is needed."
+        }, 
+        {
+            "location": "/#without-root-access-port-1024-is-needed-and-usually-port-8000-is-employed", 
+            "text": "Google can help  http://127.0.0.1:8000", 
+            "title": "Without root access, port &gt; 1024 is needed, and usually port 8000 is employed"
+        }, 
+        {
+            "location": "/php_requirements/", 
+            "text": "Simple writable database program runnning on Laravel php web framework\n\n\nLaravel isn't really installed, but rather it is unzipped and started with the onboard php.\n\n\nLaravel was installed on this machine.  You'll need to download and unzip it yourself because the huge \"vendor\" folder is empty in this repository.  You can copy this code into your installation and start it with any luck.\n\n\nPHP was upgraded to php version 5.4.  Centos 6 maxes out at 5.3.3 as of 030714.\n\n\nAn entire web database application was created here and can be stored somewhere probably in /var/www/\n\n\n\n\nIt does NOT use the onboard apache server.  \n\n\nIt does NOT use the onboard mysql server.  \n\n\n\n\nMost proper Laravel production deployments probably do use onboard apache and mysql.\n\n\nThis one starts the web server in php.  Yes, PHP is the process running that is listening on port 8000.  The database is an sqlite3 database located in that same directory where the entire thing is.  Therefore, this application can instantly transport to a Mac OSX or Windows machine elsewhere that satisfies the two not typical requirements:\n\n\n\n\nphp 5.4 \n\n\nsqlite3\n\n\n\n\nThere are actually other requirements, related to php module/plugins/?? like php-mcrypt and php_sqlite?? but probably others too.  PHP needs to be 5.4 and it needs to be able to find and use the sqlite somehow.  sqlite3 was already there and the xtra-large php setup seems to satisfy everything.\n\n\nThe onboard application can be found by visiting with a web browser to this location:\n\n\nlocalhost:8000/carriers/\n\nhttp://127.0.0.1:8000/carriers/\n\n\nIf the application is NOT running, any non-root can start it (because the default is only port 8000), like this:\n\n\n\n\ncd /var/www/html/carriers\n\n\nphp artisan serve --host=\"localhost\"\n\n\nphp artisan serve --host=\"hostname.com\"\n\n\n\n\n[root@hostname.com carriers]# php artisan serve\n\n\nLaravel development server started on http://localhost:8000\n\n\nThat last option  --host=\"hostname.com\"  is not required and can be omitted.  But without it, the server will only listen on localhost, and you will only be able to visit it from a web browser running on localhost.  You can also pass --port=80, but you'll have to be root to listen on port 80.  And apache might already be using port 80 on that machine (or want to later).  You can get the lowdown help on artisan like this:\n\n\nphp artisan serve --help\n\n\nFeel free to delete/edit/create records of carriers, because the entire (already pre-seeded) application can be untarred from the tarfile.\n\n\nAnd from there you can see the existing records, add new carriers, delete them or edit existing carriers.  All of the data only changes in the sqlite3 database.\n\n\nThe application was written (by Tom) and the details of that are (hopefully (soon)) documented somewhere.  Books and websites on Laravel will get you moving quickly.  About ten files were edited and a dozen commands were run (to create the app, seed the database, other setup activity).  It is as easy as any comparably web database construction.\n\n\nStarting the example program, carriers\n\n\nAs mentioned above, if the program is NOT running, then you will need to start it.  What was NOT mentioned is that you WILL NEED TO START IT.  The start command:\n\n\nphp artisan serve --host=\"localhost\"\n\n\nFor some reason that I don't understand, will not go properly into the background.  Normally, you could start it and let run forever, in the background like this:\n\n\nphp artisan serve --host=\"localhost\" \n\n\nBut that ampersand \n on the end will put it into the background but it also disables it, so that you cannot do something else while it still serves.  This is not a bug but is the way that the code works.  A \"fix\" will require them to fix the code so that the blocking goes away.  This is NOT a problem.  Just start it in the normal way:\n\n\nlocalhost$ php artisan serve --host=\"localhost\"\n\n\nAnd let your shell get stuck forever.  Use another shell, perhaps a browser, logging in with X-forwarding like this, in another shell, while php artisan serve, is running:\n\n\nELSEWHERE$  ssh -X USER@hostname.com\n\n\nhostname.com$  firefox \n\n\nAnd then visit the carriers page in firefox, at this URL:\n\n\nlocalhost:8000/carriers/\n\n\nAnd go ahead and hack on it.\n\n\nMentioned above is the boatload of PHP.  Without the boatload, you might see messages like these when you startup:\n\n\nphp artisan serve\nMcrypt PHP extension required.\n\n\n\n\nThese ridiculous PHP modifying installations were run on CentOS 6.5 circa early 2014 and got the machine in a position to start properly:\n\n\nwget http://rpms.famillecollet.com/enterprise/remi-release-6.rpm\n\n\nrpm -ivh remi-release-6.rpm\n\n\nwget http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm\n\n\nrpm -ivh epel-release-6-8.noarch.rpm\n\n\nrpm -ivh remi-release-6.rpm\n\n\ncat /etc/yum.repos.d/remi.repo\n\n\ncat /etc/yum.repos.d/epel.repo\n\n\ncat /etc/yum.repos.d/epel.repo\n\n\nvim /etc/yum.repos.d/remi.repo\n\n\nyum install php-5.4.26-1.el6.remi\n\n\nyum -y install php-pecl-memcache-3.0.8-2.el6.remi.5.4\n\n\nyum -y install php-horde-imp-6.1.7-1.el6.remi\n\n\nyum -y install php-horde-horde-5.1.6-1.el6.remi\n\n\nyum -y install phpMyAdmin-4.1.9-1.el6.remi\n\n\nyum -y install php-5.4.26-1.el6.remi\n\n\nyum -y install php-bcmath-5.4.26-1.el6.remi\n\n\nyum -y install php-cli-5.4.26-1.el6.remi\n\n\nyum -y install php-common-5.4.26-1.el6.remi\n\n\nyum -y install php-dba-5.4.26-1.el6.remi\n\n\nyum -y install php-devel-5.4.26-1.el6.remi\n\n\nyum -y install php-embedded-5.4.26-1.el6.remi\n\n\nyum -y install php-enchant-5.4.26-1.el6.remi\n\n\nyum -y install php-fpm-5.4.26-1.el6.remi\n\n\nyum -y install php-gd-5.4.26-1.el6.remi\n\n\nyum -y install php-imap-5.4.26-1.el6.remi\n\n\nyum -y install php-interbase-5.4.26-1.el6.remi\n\n\nyum -y install php-intl-5.4.26-1.el6.remi\n\n\nyum -y install php-ldap-5.4.26-1.el6.remi\n\n\nyum -y install php-mbstring-5.4.26-1.el6.remi\n\n\nyum -y install php-mcrypt-5.4.26-1.el6.remi\n\n\nyum -y install php-mssql-5.4.26-1.el6.remi\n\n\nyum -y install php-mysql-5.4.26-1.el6.remi\n\n\nyum -y install php-mysqlnd-5.4.26-1.el6.remi\n\n\nyum -y install php-oci8-5.4.26-1.el6.remi\n\n\nyum -y install php-odbc-5.4.26-1.el6.remi\n\n\nyum -y install php-pdo-5.4.26-1.el6.remi\n\n\nyum -y install php-pgsql-5.4.26-1.el6.remi\n\n\nyum -y install php-process-5.4.26-1.el6.remi\n\n\nyum -y install php-pspell-5.4.26-1.el6.remi\n\n\nyum -y install php-recode-5.4.26-1.el6.remi", 
+            "title": "PHP"
+        }, 
+        {
+            "location": "/php_requirements/#simple-writable-database-program-runnning-on-laravel-php-web-framework", 
+            "text": "", 
+            "title": "Simple writable database program runnning on Laravel php web framework"
+        }, 
+        {
+            "location": "/php_requirements/#laravel-isnt-really-installed-but-rather-it-is-unzipped-and-started-with-the-onboard-php", 
+            "text": "", 
+            "title": "Laravel isn't really installed, but rather it is unzipped and started with the onboard php."
+        }, 
+        {
+            "location": "/php_requirements/#laravel-was-installed-on-this-machine-youll-need-to-download-and-unzip-it-yourself-because-the-huge-vendor-folder-is-empty-in-this-repository-you-can-copy-this-code-into-your-installation-and-start-it-with-any-luck", 
+            "text": "", 
+            "title": "Laravel was installed on this machine.  You'll need to download and unzip it yourself because the huge \"vendor\" folder is empty in this repository.  You can copy this code into your installation and start it with any luck."
+        }, 
+        {
+            "location": "/php_requirements/#php-was-upgraded-to-php-version-54-centos-6-maxes-out-at-533-as-of-030714", 
+            "text": "An entire web database application was created here and can be stored somewhere probably in /var/www/   It does NOT use the onboard apache server.    It does NOT use the onboard mysql server.", 
+            "title": "PHP was upgraded to php version 5.4.  Centos 6 maxes out at 5.3.3 as of 030714."
+        }, 
+        {
+            "location": "/php_requirements/#most-proper-laravel-production-deployments-probably-do-use-onboard-apache-and-mysql", 
+            "text": "", 
+            "title": "Most proper Laravel production deployments probably do use onboard apache and mysql."
+        }, 
+        {
+            "location": "/php_requirements/#this-one-starts-the-web-server-in-php-yes-php-is-the-process-running-that-is-listening-on-port-8000-the-database-is-an-sqlite3-database-located-in-that-same-directory-where-the-entire-thing-is-therefore-this-application-can-instantly-transport-to-a-mac-osx-or-windows-machine-elsewhere-that-satisfies-the-two-not-typical-requirements", 
+            "text": "php 5.4   sqlite3", 
+            "title": "This one starts the web server in php.  Yes, PHP is the process running that is listening on port 8000.  The database is an sqlite3 database located in that same directory where the entire thing is.  Therefore, this application can instantly transport to a Mac OSX or Windows machine elsewhere that satisfies the two not typical requirements:"
+        }, 
+        {
+            "location": "/php_requirements/#there-are-actually-other-requirements-related-to-php-moduleplugins-like-php-mcrypt-and-php_sqlite-but-probably-others-too-php-needs-to-be-54-and-it-needs-to-be-able-to-find-and-use-the-sqlite-somehow-sqlite3-was-already-there-and-the-xtra-large-php-setup-seems-to-satisfy-everything", 
+            "text": "", 
+            "title": "There are actually other requirements, related to php module/plugins/?? like php-mcrypt and php_sqlite?? but probably others too.  PHP needs to be 5.4 and it needs to be able to find and use the sqlite somehow.  sqlite3 was already there and the xtra-large php setup seems to satisfy everything."
+        }, 
+        {
+            "location": "/php_requirements/#the-onboard-application-can-be-found-by-visiting-with-a-web-browser-to-this-location", 
+            "text": "localhost:8000/carriers/ http://127.0.0.1:8000/carriers/", 
+            "title": "The onboard application can be found by visiting with a web browser to this location:"
+        }, 
+        {
+            "location": "/php_requirements/#if-the-application-is-not-running-any-non-root-can-start-it-because-the-default-is-only-port-8000-like-this", 
+            "text": "cd /var/www/html/carriers  php artisan serve --host=\"localhost\"  php artisan serve --host=\"hostname.com\"   [root@hostname.com carriers]# php artisan serve  Laravel development server started on http://localhost:8000", 
+            "title": "If the application is NOT running, any non-root can start it (because the default is only port 8000), like this:"
+        }, 
+        {
+            "location": "/php_requirements/#that-last-option-hosthostnamecom-is-not-required-and-can-be-omitted-but-without-it-the-server-will-only-listen-on-localhost-and-you-will-only-be-able-to-visit-it-from-a-web-browser-running-on-localhost-you-can-also-pass-port80-but-youll-have-to-be-root-to-listen-on-port-80-and-apache-might-already-be-using-port-80-on-that-machine-or-want-to-later-you-can-get-the-lowdown-help-on-artisan-like-this", 
+            "text": "php artisan serve --help", 
+            "title": "That last option  --host=\"hostname.com\"  is not required and can be omitted.  But without it, the server will only listen on localhost, and you will only be able to visit it from a web browser running on localhost.  You can also pass --port=80, but you'll have to be root to listen on port 80.  And apache might already be using port 80 on that machine (or want to later).  You can get the lowdown help on artisan like this:"
+        }, 
+        {
+            "location": "/php_requirements/#feel-free-to-deleteeditcreate-records-of-carriers-because-the-entire-already-pre-seeded-application-can-be-untarred-from-the-tarfile", 
+            "text": "", 
+            "title": "Feel free to delete/edit/create records of carriers, because the entire (already pre-seeded) application can be untarred from the tarfile."
+        }, 
+        {
+            "location": "/php_requirements/#and-from-there-you-can-see-the-existing-records-add-new-carriers-delete-them-or-edit-existing-carriers-all-of-the-data-only-changes-in-the-sqlite3-database", 
+            "text": "", 
+            "title": "And from there you can see the existing records, add new carriers, delete them or edit existing carriers.  All of the data only changes in the sqlite3 database."
+        }, 
+        {
+            "location": "/php_requirements/#the-application-was-written-by-tom-and-the-details-of-that-are-hopefully-soon-documented-somewhere-books-and-websites-on-laravel-will-get-you-moving-quickly-about-ten-files-were-edited-and-a-dozen-commands-were-run-to-create-the-app-seed-the-database-other-setup-activity-it-is-as-easy-as-any-comparably-web-database-construction", 
+            "text": "", 
+            "title": "The application was written (by Tom) and the details of that are (hopefully (soon)) documented somewhere.  Books and websites on Laravel will get you moving quickly.  About ten files were edited and a dozen commands were run (to create the app, seed the database, other setup activity).  It is as easy as any comparably web database construction."
+        }, 
+        {
+            "location": "/php_requirements/#starting-the-example-program-carriers", 
+            "text": "", 
+            "title": "Starting the example program, carriers"
+        }, 
+        {
+            "location": "/php_requirements/#as-mentioned-above-if-the-program-is-not-running-then-you-will-need-to-start-it-what-was-not-mentioned-is-that-you-will-need-to-start-it-the-start-command", 
+            "text": "php artisan serve --host=\"localhost\"", 
+            "title": "As mentioned above, if the program is NOT running, then you will need to start it.  What was NOT mentioned is that you WILL NEED TO START IT.  The start command:"
+        }, 
+        {
+            "location": "/php_requirements/#for-some-reason-that-i-dont-understand-will-not-go-properly-into-the-background-normally-you-could-start-it-and-let-run-forever-in-the-background-like-this", 
+            "text": "php artisan serve --host=\"localhost\"", 
+            "title": "For some reason that I don't understand, will not go properly into the background.  Normally, you could start it and let run forever, in the background like this:"
+        }, 
+        {
+            "location": "/php_requirements/#but-that-ampersand-on-the-end-will-put-it-into-the-background-but-it-also-disables-it-so-that-you-cannot-do-something-else-while-it-still-serves-this-is-not-a-bug-but-is-the-way-that-the-code-works-a-fix-will-require-them-to-fix-the-code-so-that-the-blocking-goes-away-this-is-not-a-problem-just-start-it-in-the-normal-way", 
+            "text": "localhost$ php artisan serve --host=\"localhost\"", 
+            "title": "But that ampersand &amp; on the end will put it into the background but it also disables it, so that you cannot do something else while it still serves.  This is not a bug but is the way that the code works.  A \"fix\" will require them to fix the code so that the blocking goes away.  This is NOT a problem.  Just start it in the normal way:"
+        }, 
+        {
+            "location": "/php_requirements/#and-let-your-shell-get-stuck-forever-use-another-shell-perhaps-a-browser-logging-in-with-x-forwarding-like-this-in-another-shell-while-php-artisan-serve-is-running", 
+            "text": "ELSEWHERE$  ssh -X USER@hostname.com  hostname.com$  firefox", 
+            "title": "And let your shell get stuck forever.  Use another shell, perhaps a browser, logging in with X-forwarding like this, in another shell, while php artisan serve, is running:"
+        }, 
+        {
+            "location": "/php_requirements/#and-then-visit-the-carriers-page-in-firefox-at-this-url", 
+            "text": "localhost:8000/carriers/", 
+            "title": "And then visit the carriers page in firefox, at this URL:"
+        }, 
+        {
+            "location": "/php_requirements/#and-go-ahead-and-hack-on-it", 
+            "text": "", 
+            "title": "And go ahead and hack on it."
+        }, 
+        {
+            "location": "/php_requirements/#mentioned-above-is-the-boatload-of-php-without-the-boatload-you-might-see-messages-like-these-when-you-startup", 
+            "text": "php artisan serve\nMcrypt PHP extension required.", 
+            "title": "Mentioned above is the boatload of PHP.  Without the boatload, you might see messages like these when you startup:"
+        }, 
+        {
+            "location": "/php_requirements/#these-ridiculous-php-modifying-installations-were-run-on-centos-65-circa-early-2014-and-got-the-machine-in-a-position-to-start-properly", 
+            "text": "wget http://rpms.famillecollet.com/enterprise/remi-release-6.rpm  rpm -ivh remi-release-6.rpm  wget http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm  rpm -ivh epel-release-6-8.noarch.rpm  rpm -ivh remi-release-6.rpm  cat /etc/yum.repos.d/remi.repo  cat /etc/yum.repos.d/epel.repo  cat /etc/yum.repos.d/epel.repo  vim /etc/yum.repos.d/remi.repo  yum install php-5.4.26-1.el6.remi  yum -y install php-pecl-memcache-3.0.8-2.el6.remi.5.4  yum -y install php-horde-imp-6.1.7-1.el6.remi  yum -y install php-horde-horde-5.1.6-1.el6.remi  yum -y install phpMyAdmin-4.1.9-1.el6.remi  yum -y install php-5.4.26-1.el6.remi  yum -y install php-bcmath-5.4.26-1.el6.remi  yum -y install php-cli-5.4.26-1.el6.remi  yum -y install php-common-5.4.26-1.el6.remi  yum -y install php-dba-5.4.26-1.el6.remi  yum -y install php-devel-5.4.26-1.el6.remi  yum -y install php-embedded-5.4.26-1.el6.remi  yum -y install php-enchant-5.4.26-1.el6.remi  yum -y install php-fpm-5.4.26-1.el6.remi  yum -y install php-gd-5.4.26-1.el6.remi  yum -y install php-imap-5.4.26-1.el6.remi  yum -y install php-interbase-5.4.26-1.el6.remi  yum -y install php-intl-5.4.26-1.el6.remi  yum -y install php-ldap-5.4.26-1.el6.remi  yum -y install php-mbstring-5.4.26-1.el6.remi  yum -y install php-mcrypt-5.4.26-1.el6.remi  yum -y install php-mssql-5.4.26-1.el6.remi  yum -y install php-mysql-5.4.26-1.el6.remi  yum -y install php-mysqlnd-5.4.26-1.el6.remi  yum -y install php-oci8-5.4.26-1.el6.remi  yum -y install php-odbc-5.4.26-1.el6.remi  yum -y install php-pdo-5.4.26-1.el6.remi  yum -y install php-pgsql-5.4.26-1.el6.remi  yum -y install php-process-5.4.26-1.el6.remi  yum -y install php-pspell-5.4.26-1.el6.remi  yum -y install php-recode-5.4.26-1.el6.remi", 
+            "title": "These ridiculous PHP modifying installations were run on CentOS 6.5 circa early 2014 and got the machine in a position to start properly:"
+        }
+    ]
+}

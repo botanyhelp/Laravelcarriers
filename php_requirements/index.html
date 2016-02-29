@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+
+	<title>PHP - Laravelcarriers</title>
+
+        <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../css/font-awesome-4.5.0.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="../css/highlight.css">
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+        
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+            <a class="navbar-brand" href="..">Laravelcarriers</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="..">Home</a>
+                    </li>
+                
+                
+                
+                    <li class="active">
+                        <a href="./">PHP</a>
+                    </li>
+                
+                
+                </ul>
+            
+
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                        <i class="fa fa-search"></i> Search
+                    </a>
+                </li>
+                
+                    <li >
+                        <a rel="next" href="..">
+                            <i class="fa fa-arrow-left"></i> Previous
+                        </a>
+                    </li>
+                    <li class="disabled">
+                        <a rel="prev" >
+                            Next <i class="fa fa-arrow-right"></i>
+                        </a>
+                    </li>
+                
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+            
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#simple-writable-database-program-runnning-on-laravel-php-web-framework">Simple writable database program runnning on Laravel php web framework</a></li>
+        
+            <li><a href="#laravel-isnt-really-installed-but-rather-it-is-unzipped-and-started-with-the-onboard-php">Laravel isn't really installed, but rather it is unzipped and started with the onboard php.</a></li>
+        
+    
+        <li class="main "><a href="#starting-the-example-program-carriers">Starting the example program, carriers</a></li>
+        
+            <li><a href="#as-mentioned-above-if-the-program-is-not-running-then-you-will-need-to-start-it-what-was-not-mentioned-is-that-you-will-need-to-start-it-the-start-command">As mentioned above, if the program is NOT running, then you will need to start it.  What was NOT mentioned is that you WILL NEED TO START IT.  The start command:</a></li>
+        
+            <li><a href="#for-some-reason-that-i-dont-understand-will-not-go-properly-into-the-background-normally-you-could-start-it-and-let-run-forever-in-the-background-like-this">For some reason that I don't understand, will not go properly into the background.  Normally, you could start it and let run forever, in the background like this:</a></li>
+        
+            <li><a href="#but-that-ampersand-on-the-end-will-put-it-into-the-background-but-it-also-disables-it-so-that-you-cannot-do-something-else-while-it-still-serves-this-is-not-a-bug-but-is-the-way-that-the-code-works-a-fix-will-require-them-to-fix-the-code-so-that-the-blocking-goes-away-this-is-not-a-problem-just-start-it-in-the-normal-way">But that ampersand &amp; on the end will put it into the background but it also disables it, so that you cannot do something else while it still serves.  This is not a bug but is the way that the code works.  A "fix" will require them to fix the code so that the blocking goes away.  This is NOT a problem.  Just start it in the normal way:</a></li>
+        
+            <li><a href="#and-let-your-shell-get-stuck-forever-use-another-shell-perhaps-a-browser-logging-in-with-x-forwarding-like-this-in-another-shell-while-php-artisan-serve-is-running">And let your shell get stuck forever.  Use another shell, perhaps a browser, logging in with X-forwarding like this, in another shell, while php artisan serve, is running:</a></li>
+        
+            <li><a href="#and-then-visit-the-carriers-page-in-firefox-at-this-url">And then visit the carriers page in firefox, at this URL:</a></li>
+        
+            <li><a href="#and-go-ahead-and-hack-on-it">And go ahead and hack on it.</a></li>
+        
+            <li><a href="#mentioned-above-is-the-boatload-of-php-without-the-boatload-you-might-see-messages-like-these-when-you-startup">Mentioned above is the boatload of PHP.  Without the boatload, you might see messages like these when you startup:</a></li>
+        
+            <li><a href="#these-ridiculous-php-modifying-installations-were-run-on-centos-65-circa-early-2014-and-got-the-machine-in-a-position-to-start-properly">These ridiculous PHP modifying installations were run on CentOS 6.5 circa early 2014 and got the machine in a position to start properly:</a></li>
+        
+    
+    </ul>
+</div></div>
+                <div class="col-md-9" role="main">
+
+<h1 id="simple-writable-database-program-runnning-on-laravel-php-web-framework">Simple writable database program runnning on Laravel php web framework</h1>
+<h2 id="laravel-isnt-really-installed-but-rather-it-is-unzipped-and-started-with-the-onboard-php">Laravel isn't really installed, but rather it is unzipped and started with the onboard php.</h2>
+<h4 id="laravel-was-installed-on-this-machine-youll-need-to-download-and-unzip-it-yourself-because-the-huge-vendor-folder-is-empty-in-this-repository-you-can-copy-this-code-into-your-installation-and-start-it-with-any-luck">Laravel was installed on this machine.  You'll need to download and unzip it yourself because the huge "vendor" folder is empty in this repository.  You can copy this code into your installation and start it with any luck.</h4>
+<h4 id="php-was-upgraded-to-php-version-54-centos-6-maxes-out-at-533-as-of-030714">PHP was upgraded to php version 5.4.  Centos 6 maxes out at 5.3.3 as of 030714.</h4>
+<p>An entire web database application was created here and can be stored somewhere probably in /var/www/</p>
+<ul>
+<li>It does NOT use the onboard apache server.  </li>
+<li>It does NOT use the onboard mysql server.  </li>
+</ul>
+<h4 id="most-proper-laravel-production-deployments-probably-do-use-onboard-apache-and-mysql">Most proper Laravel production deployments probably do use onboard apache and mysql.</h4>
+<h4 id="this-one-starts-the-web-server-in-php-yes-php-is-the-process-running-that-is-listening-on-port-8000-the-database-is-an-sqlite3-database-located-in-that-same-directory-where-the-entire-thing-is-therefore-this-application-can-instantly-transport-to-a-mac-osx-or-windows-machine-elsewhere-that-satisfies-the-two-not-typical-requirements">This one starts the web server in php.  Yes, PHP is the process running that is listening on port 8000.  The database is an sqlite3 database located in that same directory where the entire thing is.  Therefore, this application can instantly transport to a Mac OSX or Windows machine elsewhere that satisfies the two not typical requirements:</h4>
+<ul>
+<li>php 5.4 </li>
+<li>sqlite3</li>
+</ul>
+<h4 id="there-are-actually-other-requirements-related-to-php-moduleplugins-like-php-mcrypt-and-php_sqlite-but-probably-others-too-php-needs-to-be-54-and-it-needs-to-be-able-to-find-and-use-the-sqlite-somehow-sqlite3-was-already-there-and-the-xtra-large-php-setup-seems-to-satisfy-everything">There are actually other requirements, related to php module/plugins/?? like php-mcrypt and php_sqlite?? but probably others too.  PHP needs to be 5.4 and it needs to be able to find and use the sqlite somehow.  sqlite3 was already there and the xtra-large php setup seems to satisfy everything.</h4>
+<h4 id="the-onboard-application-can-be-found-by-visiting-with-a-web-browser-to-this-location">The onboard application can be found by visiting with a web browser to this location:</h4>
+<p><em>localhost:8000/carriers/
+</em>http://127.0.0.1:8000/carriers/</p>
+<h4 id="if-the-application-is-not-running-any-non-root-can-start-it-because-the-default-is-only-port-8000-like-this">If the application is NOT running, any non-root can start it (because the default is only port 8000), like this:</h4>
+<ul>
+<li>cd /var/www/html/carriers</li>
+<li>php artisan serve --host="localhost"</li>
+<li>php artisan serve --host="hostname.com"</li>
+</ul>
+<p><code>[root@hostname.com carriers]# php artisan serve</code></p>
+<p><code>Laravel development server started on http://localhost:8000</code></p>
+<h4 id="that-last-option-hosthostnamecom-is-not-required-and-can-be-omitted-but-without-it-the-server-will-only-listen-on-localhost-and-you-will-only-be-able-to-visit-it-from-a-web-browser-running-on-localhost-you-can-also-pass-port80-but-youll-have-to-be-root-to-listen-on-port-80-and-apache-might-already-be-using-port-80-on-that-machine-or-want-to-later-you-can-get-the-lowdown-help-on-artisan-like-this">That last option  --host="hostname.com"  is not required and can be omitted.  But without it, the server will only listen on localhost, and you will only be able to visit it from a web browser running on localhost.  You can also pass --port=80, but you'll have to be root to listen on port 80.  And apache might already be using port 80 on that machine (or want to later).  You can get the lowdown help on artisan like this:</h4>
+<p><code>php artisan serve --help</code></p>
+<h4 id="feel-free-to-deleteeditcreate-records-of-carriers-because-the-entire-already-pre-seeded-application-can-be-untarred-from-the-tarfile">Feel free to delete/edit/create records of carriers, because the entire (already pre-seeded) application can be untarred from the tarfile.</h4>
+<h4 id="and-from-there-you-can-see-the-existing-records-add-new-carriers-delete-them-or-edit-existing-carriers-all-of-the-data-only-changes-in-the-sqlite3-database">And from there you can see the existing records, add new carriers, delete them or edit existing carriers.  All of the data only changes in the sqlite3 database.</h4>
+<h4 id="the-application-was-written-by-tom-and-the-details-of-that-are-hopefully-soon-documented-somewhere-books-and-websites-on-laravel-will-get-you-moving-quickly-about-ten-files-were-edited-and-a-dozen-commands-were-run-to-create-the-app-seed-the-database-other-setup-activity-it-is-as-easy-as-any-comparably-web-database-construction">The application was written (by Tom) and the details of that are (hopefully (soon)) documented somewhere.  Books and websites on Laravel will get you moving quickly.  About ten files were edited and a dozen commands were run (to create the app, seed the database, other setup activity).  It is as easy as any comparably web database construction.</h4>
+<h1 id="starting-the-example-program-carriers">Starting the example program, carriers</h1>
+<h4 id="as-mentioned-above-if-the-program-is-not-running-then-you-will-need-to-start-it-what-was-not-mentioned-is-that-you-will-need-to-start-it-the-start-command">As mentioned above, if the program is NOT running, then you will need to start it.  What was NOT mentioned is that you WILL NEED TO START IT.  The start command:</h4>
+<p><strong>php artisan serve --host="localhost"</strong></p>
+<h4 id="for-some-reason-that-i-dont-understand-will-not-go-properly-into-the-background-normally-you-could-start-it-and-let-run-forever-in-the-background-like-this">For some reason that I don't understand, will not go properly into the background.  Normally, you could start it and let run forever, in the background like this:</h4>
+<p><strong>php artisan serve --host="localhost" &amp;</strong></p>
+<h4 id="but-that-ampersand-on-the-end-will-put-it-into-the-background-but-it-also-disables-it-so-that-you-cannot-do-something-else-while-it-still-serves-this-is-not-a-bug-but-is-the-way-that-the-code-works-a-fix-will-require-them-to-fix-the-code-so-that-the-blocking-goes-away-this-is-not-a-problem-just-start-it-in-the-normal-way">But that ampersand &amp; on the end will put it into the background but it also disables it, so that you cannot do something else while it still serves.  This is not a bug but is the way that the code works.  A "fix" will require them to fix the code so that the blocking goes away.  This is NOT a problem.  Just start it in the normal way:</h4>
+<p><strong>localhost$ php artisan serve --host="localhost"</strong></p>
+<h4 id="and-let-your-shell-get-stuck-forever-use-another-shell-perhaps-a-browser-logging-in-with-x-forwarding-like-this-in-another-shell-while-php-artisan-serve-is-running">And let your shell get stuck forever.  Use another shell, perhaps a browser, logging in with X-forwarding like this, in another shell, while php artisan serve, is running:</h4>
+<p><strong>ELSEWHERE$  ssh -X USER@hostname.com</strong></p>
+<p><strong>hostname.com$  firefox &amp;</strong></p>
+<h4 id="and-then-visit-the-carriers-page-in-firefox-at-this-url">And then visit the carriers page in firefox, at this URL:</h4>
+<p><strong>localhost:8000/carriers/</strong></p>
+<h4 id="and-go-ahead-and-hack-on-it">And go ahead and hack on it.</h4>
+<h4 id="mentioned-above-is-the-boatload-of-php-without-the-boatload-you-might-see-messages-like-these-when-you-startup">Mentioned above is the boatload of PHP.  Without the boatload, you might see messages like these when you startup:</h4>
+<pre><code>php artisan serve
+Mcrypt PHP extension required.
+</code></pre>
+
+<h4 id="these-ridiculous-php-modifying-installations-were-run-on-centos-65-circa-early-2014-and-got-the-machine-in-a-position-to-start-properly">These ridiculous PHP modifying installations were run on CentOS 6.5 circa early 2014 and got the machine in a position to start properly:</h4>
+<p><code>wget http://rpms.famillecollet.com/enterprise/remi-release-6.rpm</code>
+<code>rpm -ivh remi-release-6.rpm</code>
+<code>wget http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm</code>
+<code>rpm -ivh epel-release-6-8.noarch.rpm</code>
+<code>rpm -ivh remi-release-6.rpm</code>
+<code>cat /etc/yum.repos.d/remi.repo</code>
+<code>cat /etc/yum.repos.d/epel.repo</code>
+<code>cat /etc/yum.repos.d/epel.repo</code>
+<code>vim /etc/yum.repos.d/remi.repo</code>
+<code>yum install php-5.4.26-1.el6.remi</code>
+<code>yum -y install php-pecl-memcache-3.0.8-2.el6.remi.5.4</code>
+<code>yum -y install php-horde-imp-6.1.7-1.el6.remi</code>
+<code>yum -y install php-horde-horde-5.1.6-1.el6.remi</code>
+<code>yum -y install phpMyAdmin-4.1.9-1.el6.remi</code>
+<code>yum -y install php-5.4.26-1.el6.remi</code>
+<code>yum -y install php-bcmath-5.4.26-1.el6.remi</code>
+<code>yum -y install php-cli-5.4.26-1.el6.remi</code>
+<code>yum -y install php-common-5.4.26-1.el6.remi</code>
+<code>yum -y install php-dba-5.4.26-1.el6.remi</code>
+<code>yum -y install php-devel-5.4.26-1.el6.remi</code>
+<code>yum -y install php-embedded-5.4.26-1.el6.remi</code>
+<code>yum -y install php-enchant-5.4.26-1.el6.remi</code>
+<code>yum -y install php-fpm-5.4.26-1.el6.remi</code>
+<code>yum -y install php-gd-5.4.26-1.el6.remi</code>
+<code>yum -y install php-imap-5.4.26-1.el6.remi</code>
+<code>yum -y install php-interbase-5.4.26-1.el6.remi</code>
+<code>yum -y install php-intl-5.4.26-1.el6.remi</code>
+<code>yum -y install php-ldap-5.4.26-1.el6.remi</code>
+<code>yum -y install php-mbstring-5.4.26-1.el6.remi</code>
+<code>yum -y install php-mcrypt-5.4.26-1.el6.remi</code>
+<code>yum -y install php-mssql-5.4.26-1.el6.remi</code>
+<code>yum -y install php-mysql-5.4.26-1.el6.remi</code>
+<code>yum -y install php-mysqlnd-5.4.26-1.el6.remi</code>
+<code>yum -y install php-oci8-5.4.26-1.el6.remi</code>
+<code>yum -y install php-odbc-5.4.26-1.el6.remi</code>
+<code>yum -y install php-pdo-5.4.26-1.el6.remi</code>
+<code>yum -y install php-pgsql-5.4.26-1.el6.remi</code>
+<code>yum -y install php-process-5.4.26-1.el6.remi</code>
+<code>yum -y install php-pspell-5.4.26-1.el6.remi</code>
+<code>yum -y install php-recode-5.4.26-1.el6.remi</code></p></div>
+            
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            
+            <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+
+        <script src="../js/jquery-1.10.2.min.js"></script>
+        <script src="../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../js/highlight.pack.js"></script>
+        <script>var base_url = '..';</script>
+        <script data-main="../mkdocs/js/search.js" src="../mkdocs/js/require.js"></script>
+        <script src="../js/base.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                            From here you can search these documents. Enter
+                            your search terms below.
+                        </p>
+                        <form role="form">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
+                            </div>
+                        </form>
+                        <div id="mkdocs-search-results"></div>
+                    </div>
+                    <div class="modal-footer">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </body>
+</html>
